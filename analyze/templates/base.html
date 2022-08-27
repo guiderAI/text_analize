@@ -1,0 +1,78 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "css/myfile_style.css" %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--Typed.js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap">
+    <title>Text Analyzer</title>
+</head>
+<style media="screen">
+  body {
+    background-color: #dfe7ef;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-family: spotify-circular, spotify-circular-cyrillic,
+      spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, helvetica,
+      arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif;
+  }
+</style>
+<body>
+  <style media="screen">
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #25292e;
+      color: white;
+      text-align: center;
+      display: block;
+    }
+    .nav_1{
+      margin-left: 60px;
+    }
+    li{
+      margin-left: 10px;
+    }
+  </style>
+    <nav class="navbar navbar-expand-lg stickytop navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="nav_1 collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="#"><h4><strong>Home</strong></h4></a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><h4>Text Analyzer</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'sound' %}"><h4>Sound processing</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><h4>About</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'result' %}"><h4>Result</h4></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <div class="container">
+    {% block body_block %}
+    {% endblock %}
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <span class="text-light">TextAnalyzer</span>
+    </div>
+  </footer>
+</body>
+</html>

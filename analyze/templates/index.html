@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class="container ">
+    <form action="{% url 'result' %}" method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <br>
+        <h3><span id="typed"></span></h3>
+        <div class="form-group">
+          <textarea class="text-right form-control" name='text' id="exampleFormControlTextarea1" rows="8"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-group btn btn-primary" name = 'b_1' value = '1'>Analyze text</button>
+      <button type="submit" class="btn-group btn btn-primary" name = 'b_1' value = '2'>convert text  into speech</button>
+      <a class="btn-group btn btn-primary" href="{% url 'result' %}">reading from file</a>
+    </form>
+    <script>
+       var typed = new Typed('#typed',{
+                      strings:["You can do anything with your text here!","Enter your text here and let Text Utils do the magic!"],
+                      backSpeed: 15,
+                      smartBackspace: true,
+                      backDelay: 1200,
+                      startDelay: 1000,
+                      typeSpeed: 25,
+                      loop: false,
+                    });
+      </script>
+</div>
+{% endblock %}

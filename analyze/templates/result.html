@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<style media="screen">
+  .result-left{
+    text-align: right;
+    color:red;
+  }
+  #tts{
+    text-align: center;
+    color:red;
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: bold;
+  }
+</style>
+  <br>
+  <div class="">
+    <h3 class="heading">
+      <strong>  Your analyzed text is :</strong>
+    </h3>
+  <br>
+  </div>
+    <div class="container-fluid content bg-light" style="position:relative;">
+      <br>
+                {% if out_1 == 'Done' %}
+                  <h2 id='tts'>{{out_1}}</h2>
+                {% else %}
+                <h5 class="result-left">
+
+                  {% for l in out_1 %}
+                    {% if l == 'line' %}
+                        <hr>
+                        <br>
+                    {% else %}
+                  <tr>
+                    <td class="">{{l}}</td>
+                  </tr>
+                    {% endif %}
+                  {% endfor %}
+                </h5>
+              {% endif %}
+
+    </div>
+    <div class="">
+      {% if out_1 == 'Done' %}
+        <a class="btn-group btn btn-primary btn_tts" href="{% url 'play_tts' %}">play sound</a>
+      {% endif %}
+    </div>
+{% endblock %}
